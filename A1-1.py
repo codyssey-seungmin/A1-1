@@ -34,10 +34,29 @@ while True:
     choice = input("메뉴를 선택하세요: ")
 
     if choice == "1":
-        title = input("프롬프트 제목을 입력하세요: ")
-        category = input("카테고리를 입력하세요: ")
-        content = input("프롬프트 내용을 입력하세요: ")
+        while True:
+            title = input("프롬프트 제목을 입력하세요: ").strip()
 
+            if title != "":
+                break
+
+            print("제목은 비워둘 수 없습니다.")
+
+        while True:
+            category = input("카테고리를 입력하세요: ").strip()
+
+            if category != "":
+                break
+
+            print("카테고리는 비워둘 수 없습니다.")
+
+        while True:
+            content = input("프롬프트 내용을 입력하세요: ").strip()
+
+            if content != "":
+                break
+
+            print("내용은 비워둘 수 없습니다.")
         prompt = {
             "title": title,
             "category": category,
