@@ -220,7 +220,10 @@ while True:
 
                 print(index + 1, ".", mark, prompt["title"])
 
-            number = int(input("즐겨찾기를 변경할 번호를 입력하세요: "))
+        number_input = input("즐겨찾기를 변경할 번호를 입력하세요: ")
+
+        if number_input.isdigit():
+            number = int(number_input)
 
             if number >= 1 and number <= len(prompts):
                 selected_prompt = prompts[number - 1]
@@ -231,8 +234,12 @@ while True:
                 else:
                     selected_prompt["favorite"] = False
                     print("즐겨찾기에서 해제되었습니다.")
+
             else:
                 print("올바른 번호를 입력해주세요.")
+
+        else:
+            print("숫자를 입력해주세요.")
 
     elif choice == "7":
         found = False
