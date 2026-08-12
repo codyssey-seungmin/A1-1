@@ -1,4 +1,23 @@
-prompts = []
+prompts = [
+    {
+        "title": "스마트 글래스 광고 이미지 생성",
+        "category": "이미지 생성",
+        "content": "미래지향적이면서 따뜻한 분위기의 스마트 글래스 광고 이미지를 생성해주세요.",
+        "favorite": False
+    },
+    {
+        "title": "반려동물 병원 앱 UI 디자인",
+        "category": "이미지 생성",
+        "content": "민트색을 중심으로 강아지와 고양이의 접종 기록을 확인할 수 있는 모바일 앱 화면을 디자인해주세요.",
+        "favorite": False
+    },
+    {
+        "title": "재고 부족 알림 메일 작성",
+        "category": "자동화",
+        "content": "현재 재고가 안전 재고보다 부족한 상품의 이름과 수량을 포함한 알림 메일을 작성해주세요.",
+        "favorite": False
+    }
+]
 
 while True:
     print()
