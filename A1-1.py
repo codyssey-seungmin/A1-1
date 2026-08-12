@@ -55,6 +55,21 @@ while True:
 
         if found == False:
             print("해당 카테고리의 프롬프트가 없습니다.")
+            
+    elif choice == "4":
+        keyword = input("검색어를 입력하세요: ")
+        found = False
+
+        for prompt in prompts:
+            if keyword in prompt["title"] or keyword in prompt["content"]:
+                print("제목:", prompt["title"])
+                print("카테고리:", prompt["category"])
+                print("내용:", prompt["content"])
+                print()
+                found = True
+
+        if found == False:
+            print("검색 결과가 없습니다.")
 
     elif choice == "0":
         print("프로그램을 종료합니다.")
