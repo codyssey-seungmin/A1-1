@@ -41,6 +41,21 @@ while True:
                 print("내용:", prompt["content"])
                 print()
 
+    elif choice == "3":
+        category_search = input("조회할 카테고리를 입력하세요: ")
+        found = False
+
+        for prompt in prompts:
+            if prompt["category"] == category_search:
+                print("제목:", prompt["title"])
+                print("카테고리:", prompt["category"])
+                print("내용:", prompt["content"])
+                print()
+                found = True
+
+        if found == False:
+            print("해당 카테고리의 프롬프트가 없습니다.")
+
     elif choice == "0":
         print("프로그램을 종료합니다.")
         break
