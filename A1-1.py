@@ -1,3 +1,4 @@
+prompts = []
 print("나만의 프롬프트 관리 프로그램")
 print("1. 프롬프트 추가")
 print("2. 전체 목록 보기")
@@ -16,9 +17,9 @@ if choice == "1":
     "category": category,
     "content": content
 }
-
+    prompts.append(prompt)
     print("프롬프트가 추가되었습니다.")
-    print(prompt)
+    print(prompts)
 elif choice == "2":
     print("전체 목록 보기를 선택했습니다.")
 elif choice == "0":
