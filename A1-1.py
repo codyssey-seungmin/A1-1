@@ -30,7 +30,16 @@ while True:
         print(prompts)
 
     elif choice == "2":
-        print("전체 목록 보기를 선택했습니다.")
+        if len(prompts) == 0:
+           print("저장된 프롬프트가 없습니다.")
+        else:
+            print("전체 프롬프트 목록")
+
+            for prompt in prompts:
+                print("제목:", prompt["title"])
+                print("카테고리:", prompt["category"])
+                print("내용:", prompt["content"])
+                print()
 
     elif choice == "0":
         print("프로그램을 종료합니다.")
