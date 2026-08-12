@@ -42,13 +42,42 @@ while True:
 
             print("제목은 비워둘 수 없습니다.")
 
-        while True:
-            category = input("카테고리를 입력하세요: ").strip()
+        categories = [
+            "텍스트 생성",
+            "이미지 생성",
+            "영상 생성",
+            "페르소나",
+            "자동화",
+            "기타"
+        ]
 
-            if category != "":
+        print("카테고리를 선택하세요.")
+
+        for index, category_name in enumerate(categories):
+            print(index + 1, ".", category_name)
+
+        print("7. 직접 입력")
+
+        while True:
+            category_choice = input("카테고리 번호를 입력하세요: ")
+
+            if category_choice in ["1", "2", "3", "4", "5", "6"]:
+                category = categories[int(category_choice) - 1]
                 break
 
-            print("카테고리는 비워둘 수 없습니다.")
+            elif category_choice == "7":
+                while True:
+                    category = input("카테고리를 직접 입력하세요: ").strip()
+
+                    if category != "":
+                        break
+
+                    print("카테고리는 비워둘 수 없습니다.")
+
+                break
+
+            else:
+                print("올바른 카테고리 번호를 입력해주세요.")
 
         while True:
             content = input("프롬프트 내용을 입력하세요: ").strip()
