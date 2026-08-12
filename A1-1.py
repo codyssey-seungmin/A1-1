@@ -111,7 +111,40 @@ while True:
                 print()
 
     elif choice == "3":
-        category_search = input("조회할 카테고리를 입력하세요: ")
+        categories = [
+            "텍스트 생성",
+            "이미지 생성",
+            "영상 생성",
+            "페르소나",
+            "자동화",
+            "기타"
+        ]
+
+        print("조회할 카테고리를 선택하세요.")
+
+        for index, category_name in enumerate(categories):
+            print(index + 1, ".", category_name)
+
+        print("7. 직접 입력")
+
+        while True:
+            category_choice = input("카테고리 번호를 입력하세요: ")
+
+            if category_choice in ["1", "2", "3", "4", "5", "6"]:
+                category_search = categories[int(category_choice) - 1]
+                break
+
+            elif category_choice == "7":
+                category_search = input("조회할 카테고리를 직접 입력하세요: ").strip()
+
+                if category_search != "":
+                    break
+
+                print("카테고리는 비워둘 수 없습니다.")
+
+            else:
+                print("올바른 카테고리 번호를 입력해주세요.")
+
         found = False
 
         for prompt in prompts:
