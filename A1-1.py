@@ -11,11 +11,14 @@ if choice == "1":
     title = input("프롬프트 제목을 입력하세요: ")
     category = input("카테고리를 입력하세요: ")
     content = input("프롬프트 내용을 입력하세요: ")
+    prompt = {
+    "title": title,
+    "category": category,
+    "content": content
+}
 
     print("프롬프트가 추가되었습니다.")
-    print("제목:", title)
-    print("카테고리:", category)
-    print("내용:", content)
+    print(prompt)
 elif choice == "2":
     print("전체 목록 보기를 선택했습니다.")
 elif choice == "0":
