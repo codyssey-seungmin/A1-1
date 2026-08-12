@@ -7,4 +7,11 @@ print("5. 상세 보기")
 print("6. 즐겨찾기 관리")
 print("0. 종료")
 choice = input("메뉴를 선택하세요: ")
-print("선택한 메뉴:", choice)
+if choice == "1":
+    print("프롬프트 추가를 선택했습니다.")
+elif choice == "2":
+    print("전체 목록 보기를 선택했습니다.")
+elif choice == "0":
+    print("프로그램을 종료합니다.")
+else:
+    print("올바른 메뉴 번호를 입력해주세요.")
