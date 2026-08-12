@@ -157,18 +157,28 @@ while True:
             else:
                 print("올바른 카테고리 번호를 입력해주세요.")
 
-        found = False
+        count = 0
+
+        print()
+        print("[" + category_search + "] 카테고리 프롬프트")
 
         for prompt in prompts:
             if prompt["category"] == category_search:
-                print("제목:", prompt["title"])
-                print("카테고리:", prompt["category"])
-                print("내용:", prompt["content"])
-                print()
-                found = True
+                count = count + 1
 
-        if found == False:
+                if prompt["favorite"] == True:
+                    mark = "★"
+                else:
+                    mark = ""
+
+                print(count, ".", prompt["title"], mark)
+
+        if count == 0:
             print("해당 카테고리의 프롬프트가 없습니다.")
+
+        else:
+            print()
+            print("총", count, "개의 프롬프트")
 
     elif choice == "4":
         keyword = input("검색어를 입력하세요: ")
