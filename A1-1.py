@@ -21,7 +21,8 @@ while True:
         prompt = {
             "title": title,
             "category": category,
-            "content": content
+            "content": content,
+            "favorite": False
         }
 
         prompts.append(prompt)
@@ -70,7 +71,7 @@ while True:
 
         if found == False:
             print("검색 결과가 없습니다.")
-            
+
     elif choice == "5":
         if len(prompts) == 0:
             print("저장된 프롬프트가 없습니다.")
@@ -89,6 +90,34 @@ while True:
                 print("제목:", selected_prompt["title"])
                 print("카테고리:", selected_prompt["category"])
                 print("내용:", selected_prompt["content"])
+            else:
+                print("올바른 번호를 입력해주세요.")
+
+    elif choice == "6":
+        if len(prompts) == 0:
+            print("저장된 프롬프트가 없습니다.")
+        else:
+            print("프롬프트 목록")
+
+            for index, prompt in enumerate(prompts):
+                if prompt["favorite"] == True:
+                    mark = "★"
+                else:
+                    mark = "☆"
+
+                print(index + 1, ".", mark, prompt["title"])
+
+            number = int(input("즐겨찾기를 변경할 번호를 입력하세요: "))
+
+            if number >= 1 and number <= len(prompts):
+                selected_prompt = prompts[number - 1]
+
+                if selected_prompt["favorite"] == False:
+                    selected_prompt["favorite"] = True
+                    print("즐겨찾기에 등록되었습니다.")
+                else:
+                    selected_prompt["favorite"] = False
+                    print("즐겨찾기에서 해제되었습니다.")
             else:
                 print("올바른 번호를 입력해주세요.")
 
