@@ -182,17 +182,29 @@ while True:
             for index, prompt in enumerate(prompts):
                 print(index + 1, ".", prompt["title"])
 
-            number = int(input("상세히 볼 번호를 입력하세요: "))
+        number_input = input("상세히 볼 번호를 입력하세요: ")
+
+        if number_input.isdigit():
+            number = int(number_input)
 
             if number >= 1 and number <= len(prompts):
                 selected_prompt = prompts[number - 1]
 
+                if selected_prompt["favorite"] == True:
+                    mark = "★"
+                else:
+                    mark = "☆"
+
                 print("프롬프트 상세 정보")
                 print("제목:", selected_prompt["title"])
                 print("카테고리:", selected_prompt["category"])
+                print("즐겨찾기:", mark)
                 print("내용:", selected_prompt["content"])
             else:
                 print("올바른 번호를 입력해주세요.")
+
+        else:
+            print("숫자를 입력해주세요.")
 
     elif choice == "6":
         if len(prompts) == 0:
