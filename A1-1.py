@@ -79,6 +79,47 @@ def show_favorites():
         print()
         print("총", count, "개의 즐겨찾기")
 
+def search_prompt():
+    while True:
+        keyword = input("검색어를 입력하세요: ").strip()
+
+        if keyword != "":
+            break
+
+        print("검색어는 비워둘 수 없습니다.")
+
+    count = 0
+
+    print()
+    print("검색 결과")
+
+    for prompt in prompts:
+        if (
+            keyword.lower() in prompt["title"].lower()
+            or keyword.lower() in prompt["content"].lower()
+        ):
+            count = count + 1
+
+            if prompt["favorite"] == True:
+                mark = "★"
+            else:
+                mark = ""
+
+            print(
+                count,
+                ".",
+                "[" + prompt["category"] + "]",
+                prompt["title"],
+                mark
+            )
+
+    if count == 0:
+        print("검색 결과가 없습니다.")
+
+    else:
+        print()
+        print("총", count, "개의 프롬프트를 찾았습니다.")
+
 while True:
     show_menu()
 
@@ -211,45 +252,7 @@ while True:
             print("총", count, "개의 프롬프트")
 
     elif choice == "4":
-        while True:
-            keyword = input("검색어를 입력하세요: ").strip()
-
-            if keyword != "":
-                break
-
-            print("검색어는 비워둘 수 없습니다.")
-
-        count = 0
-
-        print()
-        print("검색 결과")
-
-        for prompt in prompts:
-            if (
-                keyword.lower() in prompt["title"].lower()
-                or keyword.lower() in prompt["content"].lower()
-            ):
-                count = count + 1
-
-                if prompt["favorite"] == True:
-                    mark = "★"
-                else:
-                    mark = ""
-
-                print(
-                    count,
-                    ".",
-                    "[" + prompt["category"] + "]",
-                    prompt["title"],
-                    mark
-                )
-
-        if count == 0:
-            print("검색 결과가 없습니다.")
-
-        else:
-            print()
-            print("총", count, "개의 프롬프트를 찾았습니다.")
+        search_prompt()
 
     elif choice == "5":
         if len(prompts) == 0:
