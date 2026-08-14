@@ -31,6 +31,30 @@ def show_menu():
     print("7. 즐겨찾기 목록")
     print("0. 종료")
 
+def show_list():
+    if len(prompts) == 0:
+        print("저장된 프롬프트가 없습니다.")
+
+    else:
+        print("전체 프롬프트 목록")
+
+        for index, prompt in enumerate(prompts):
+            if prompt["favorite"] == True:
+                mark = "★"
+            else:
+                mark = ""
+
+            print(
+                index + 1,
+                ".",
+                "[" + prompt["category"] + "]",
+                prompt["title"],
+                mark
+            )
+
+        print()
+        print("총", len(prompts), "개의 프롬프트")
+
 while True:
     show_menu()
 
@@ -102,28 +126,7 @@ while True:
         print(prompts)
 
     elif choice == "2":
-        if len(prompts) == 0:
-            print("저장된 프롬프트가 없습니다.")
-
-        else:
-            print("전체 프롬프트 목록")
-
-            for index, prompt in enumerate(prompts):
-                if prompt["favorite"] == True:
-                    mark = "★"
-                else:
-                    mark = ""
-
-                print(
-                    index + 1,
-                    ".",
-                    "[" + prompt["category"] + "]",
-                    prompt["title"],
-                    mark
-                )
-
-            print()
-            print("총", len(prompts), "개의 프롬프트")
+        show_list()
 
     elif choice == "3":
         categories = [
