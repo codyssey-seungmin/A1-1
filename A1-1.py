@@ -55,6 +55,30 @@ def show_list():
         print()
         print("총", len(prompts), "개의 프롬프트")
 
+def show_favorites():
+    count = 0
+
+    print("즐겨찾기 목록")
+
+    for prompt in prompts:
+        if prompt["favorite"] == True:
+            count = count + 1
+
+            print(
+                count,
+                ".",
+                "[" + prompt["category"] + "]",
+                prompt["title"],
+                "★"
+            )
+
+    if count == 0:
+        print("즐겨찾기한 프롬프트가 없습니다.")
+
+    else:
+        print()
+        print("총", count, "개의 즐겨찾기")
+
 while True:
     show_menu()
 
@@ -296,20 +320,7 @@ while True:
             print("숫자를 입력해주세요.")
 
     elif choice == "7":
-        found = False
-
-        print("즐겨찾기 목록")
-
-        for prompt in prompts:
-            if prompt["favorite"] == True:
-                print("제목:", prompt["title"])
-                print("카테고리:", prompt["category"])
-                print("내용:", prompt["content"])
-                print()
-                found = True
-
-        if found == False:
-            print("즐겨찾기한 프롬프트가 없습니다.")
+        show_favorites()
 
     elif choice == "0":
         print("프로그램을 종료합니다.")
