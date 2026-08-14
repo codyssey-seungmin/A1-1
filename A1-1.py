@@ -155,6 +155,43 @@ def show_detail():
         else:
             print("숫자를 입력해주세요.")
 
+def manage_favorite():
+    if len(prompts) == 0:
+        print("저장된 프롬프트가 없습니다.")
+
+    else:
+        print("프롬프트 목록")
+
+        for index, prompt in enumerate(prompts):
+            if prompt["favorite"] == True:
+                mark = "★"
+            else:
+                mark = "☆"
+
+            print(index + 1, ".", mark, prompt["title"])
+
+        number_input = input("즐겨찾기를 변경할 번호를 입력하세요: ")
+
+        if number_input.isdigit():
+            number = int(number_input)
+
+            if number >= 1 and number <= len(prompts):
+                selected_prompt = prompts[number - 1]
+
+                if selected_prompt["favorite"] == False:
+                    selected_prompt["favorite"] = True
+                    print("즐겨찾기에 등록되었습니다.")
+
+                else:
+                    selected_prompt["favorite"] = False
+                    print("즐겨찾기에서 해제되었습니다.")
+
+            else:
+                print("올바른 번호를 입력해주세요.")
+
+        else:
+            print("숫자를 입력해주세요.")
+
 while True:
     show_menu()
 
@@ -293,39 +330,7 @@ while True:
         show_detail()
 
     elif choice == "6":
-        if len(prompts) == 0:
-            print("저장된 프롬프트가 없습니다.")
-        else:
-            print("프롬프트 목록")
-
-            for index, prompt in enumerate(prompts):
-                if prompt["favorite"] == True:
-                    mark = "★"
-                else:
-                    mark = "☆"
-
-                print(index + 1, ".", mark, prompt["title"])
-
-        number_input = input("즐겨찾기를 변경할 번호를 입력하세요: ")
-
-        if number_input.isdigit():
-            number = int(number_input)
-
-            if number >= 1 and number <= len(prompts):
-                selected_prompt = prompts[number - 1]
-
-                if selected_prompt["favorite"] == False:
-                    selected_prompt["favorite"] = True
-                    print("즐겨찾기에 등록되었습니다.")
-                else:
-                    selected_prompt["favorite"] = False
-                    print("즐겨찾기에서 해제되었습니다.")
-
-            else:
-                print("올바른 번호를 입력해주세요.")
-
-        else:
-            print("숫자를 입력해주세요.")
+        manage_favorite()
 
     elif choice == "7":
         show_favorites()
