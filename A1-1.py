@@ -19,7 +19,7 @@ prompts = [
     }
 ]
 
-while True:
+def show_menu():
     print()
     print("나만의 프롬프트 관리 프로그램")
     print("1. 프롬프트 추가")
@@ -30,6 +30,9 @@ while True:
     print("6. 즐겨찾기 관리")
     print("7. 즐겨찾기 목록")
     print("0. 종료")
+
+while True:
+    show_menu()
 
     choice = input("메뉴를 선택하세요: ")
 
