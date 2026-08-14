@@ -76,6 +76,32 @@ py A1-1.py
 
    * 프로그램을 종료합니다.
 
+## 프로그램 실행 화면
+
+### 메뉴 및 전체 프롬프트 목록
+
+프로그램을 실행하면 번호로 기능을 선택할 수 있는 메뉴와 기본 프롬프트가 표시됩니다.
+
+![프로그램 메뉴 및 전체 프롬프트 목록](images/05-program-main-and-list.png)
+
+### 프롬프트 추가
+
+제목, 내용, 카테고리를 입력하여 새로운 프롬프트를 등록할 수 있습니다.
+
+![새로운 프롬프트 추가](images/06-add-prompt.png)
+
+### 프롬프트 검색
+
+입력한 키워드가 제목 또는 내용에 포함된 프롬프트를 검색하여 결과를 표시합니다.
+
+![프롬프트 검색 결과](images/07-search-result.png)
+
+### 즐겨찾기 관리
+
+프롬프트를 즐겨찾기에 등록하거나 해제하고, 즐겨찾기된 프롬프트만 모아서 확인할 수 있습니다.
+
+![즐겨찾기 등록 및 목록](images/08-favorites.png)
+
 ## 프롬프트 카테고리
 
 기본 카테고리는 다음과 같습니다.
@@ -112,7 +138,7 @@ py A1-1.py
 
 ## 프로그램 구조
 
-기능별로 함수를 분리하여 구성했습니다.
+모든 코드를 한 곳에 모으지 않고 기능별로 함수를 분리하여 구성했습니다.
 
 * `show_menu()` : 메뉴 출력
 * `add_prompt()` : 프롬프트 추가
@@ -125,6 +151,38 @@ py A1-1.py
 
 ## Git 작업 방식
 
-기능 하나를 구현할 때마다 기능 단위로 커밋했습니다.
+기능 하나를 구현할 때마다 변경 목적을 구분하여 기능 단위로 커밋했습니다.
 
-`function-refactor` 브랜치에서 함수 분리 작업을 진행한 후 `main` 브랜치로 병합했습니다.
+`function-refactor` 브랜치에서 기능별 함수 분리 작업을 진행한 후, `main` 브랜치에 `--no-ff` 방식으로 병합했습니다.
+
+### 브랜치 병합
+
+`function-refactor` 브랜치의 작업을 `main` 브랜치로 병합하고 GitHub에 push한 결과입니다.
+
+![function-refactor 브랜치 병합](images/02-branch-merge.png)
+
+### Git 커밋 기록
+
+`git log --oneline --graph --all` 명령어로 기능 단위 커밋과 브랜치 병합 기록을 확인했습니다.
+
+![Git 커밋 및 브랜치 기록](images/03-git-log-graph.png)
+
+## 개발 및 저장소 확인
+
+### 개발 환경 확인
+
+Python과 Git 버전, Git 사용자 정보, 기본 브랜치 설정을 확인했습니다.
+
+![개발 환경 및 Git 설정](images/04-development-environment.png)
+
+### GitHub 최초 커밋
+
+프로젝트 파일을 생성하고 첫 번째 커밋과 GitHub push를 완료한 화면입니다.
+
+![GitHub 저장소 최초 커밋](images/01-github-first-commit.png)
+
+### 저장소 clone 확인
+
+GitHub에 업로드된 저장소를 별도 폴더에 clone한 후, 전체 파일과 커밋 기록이 정상적으로 내려오는 것을 확인했습니다.
+
+![GitHub 저장소 clone 확인](images/09-clone-verification.png)
