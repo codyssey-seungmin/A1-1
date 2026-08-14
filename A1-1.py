@@ -192,6 +192,66 @@ def manage_favorite():
         else:
             print("숫자를 입력해주세요.")
 
+def show_by_category():
+    categories = [
+        "텍스트 생성",
+        "이미지 생성",
+        "영상 생성",
+        "페르소나",
+        "자동화",
+        "기타"
+    ]
+
+    print("조회할 카테고리를 선택하세요.")
+
+    for index, category_name in enumerate(categories):
+        print(index + 1, ".", category_name)
+
+    print("7. 직접 입력")
+
+    while True:
+        category_choice = input("카테고리 번호를 입력하세요: ")
+
+        if category_choice in ["1", "2", "3", "4", "5", "6"]:
+            category_search = categories[int(category_choice) - 1]
+            break
+
+        elif category_choice == "7":
+            category_search = input(
+                "조회할 카테고리를 직접 입력하세요: "
+            ).strip()
+
+            if category_search != "":
+                break
+
+            print("카테고리는 비워둘 수 없습니다.")
+
+        else:
+            print("올바른 카테고리 번호를 입력해주세요.")
+
+    count = 0
+
+    print()
+    print("[" + category_search + "] 카테고리 프롬프트")
+
+    for prompt in prompts:
+        if prompt["category"] == category_search:
+            count = count + 1
+
+            if prompt["favorite"] == True:
+                mark = "★"
+            else:
+                mark = ""
+
+            print(count, ".", prompt["title"], mark)
+
+    if count == 0:
+        print("해당 카테고리의 프롬프트가 없습니다.")
+
+    else:
+        print()
+        print("총", count, "개의 프롬프트")
+
 while True:
     show_menu()
 
@@ -266,62 +326,7 @@ while True:
         show_list()
 
     elif choice == "3":
-        categories = [
-            "텍스트 생성",
-            "이미지 생성",
-            "영상 생성",
-            "페르소나",
-            "자동화",
-            "기타"
-        ]
-
-        print("조회할 카테고리를 선택하세요.")
-
-        for index, category_name in enumerate(categories):
-            print(index + 1, ".", category_name)
-
-        print("7. 직접 입력")
-
-        while True:
-            category_choice = input("카테고리 번호를 입력하세요: ")
-
-            if category_choice in ["1", "2", "3", "4", "5", "6"]:
-                category_search = categories[int(category_choice) - 1]
-                break
-
-            elif category_choice == "7":
-                category_search = input("조회할 카테고리를 직접 입력하세요: ").strip()
-
-                if category_search != "":
-                    break
-
-                print("카테고리는 비워둘 수 없습니다.")
-
-            else:
-                print("올바른 카테고리 번호를 입력해주세요.")
-
-        count = 0
-
-        print()
-        print("[" + category_search + "] 카테고리 프롬프트")
-
-        for prompt in prompts:
-            if prompt["category"] == category_search:
-                count = count + 1
-
-                if prompt["favorite"] == True:
-                    mark = "★"
-                else:
-                    mark = ""
-
-                print(count, ".", prompt["title"], mark)
-
-        if count == 0:
-            print("해당 카테고리의 프롬프트가 없습니다.")
-
-        else:
-            print()
-            print("총", count, "개의 프롬프트")
+        show_by_category()
 
     elif choice == "4":
         search_prompt()
